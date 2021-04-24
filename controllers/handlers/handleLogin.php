@@ -1,33 +1,30 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/webtechProject/controllers/user.php';
+include $_SERVER['DOCUMENT_ROOT'].'/webtechProject/controllers/session.php';
 
 $email = null;
 $pwd = null;
 
 if(isset($_POST['login'])) {
-    $email = $_POST['email'];
-    $pwd = $_POST['pwd'];
-    $remember = $_POST['remember'];
+    $email = htmlspecialchars(stripslashes($_POST['email']));
+    $pwd = htmlspecialchars(stripslashes($_POST['pwd']));
+    //$remember = htmlspecialchars(stripslashes($_POST['remember']));
 
-    $user = User::getUser($email);
+    $result = User::getUser($email);
+    $user = $result['data'];
     if($user === null) {
         header('Location: http://localhost/webtechProject/views/login.php?loginFailed=true');
     } else {
         if($pwd === $user['password']) {
-            session_start();
-            $_SESSION['username'] = $user['name'];
-            $_SESSION['uid'] = $user['user_id'];
-            $_SESSION['role'] = $user['role'];
-
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['contact_no'] = $user['contact_no'];
-            $_SESSION['location'] = $user['location'];
-            $_SESSION['image'] = $user['image'];
-
-            if($remember === 'on') {
-                setcookie('uid', $user['uid'], time() + 86400*7);
+            Session::create($email);
+            //header('Location: http://localhost/webtechProject/index.php?cookie='.$_POST['remember']);
+            if(isset($_POST['remember'])) {
+                setcookie('email', htmlspecialchars(stripslashes($_SESSION['email'])), time() + 86400*7);
+                header('Location: http://localhost/webtechProject/index.php?cookie=on');
+                exit();
             }
-            header('Location: http://localhost/webtechProject/index.php?coookie='.$remember);
+            header('Location: http://localhost/webtechProject/index.php');
+            exit();
         }
         else {
             header('Location: http://localhost/webtechProject/views/login.php?loginFailed=true');

@@ -71,4 +71,13 @@
         }
         return true;
     }
+    function searchUser($email) {
+        global $conn;
+        $res = $conn->query("SELECT * FROM Users WHERE email LIKE '$email%'");
+        $users = array();
+        while($row = $res->fetch_assoc()) {
+            array_push($users, $row);
+        }
+        return $users;
+    }
 ?>

@@ -24,42 +24,19 @@
         }
         public static function showFeaturedMenu() {
             $menu = getFeaturedMenu();
-            echo '<table width="1000px">';
-            foreach($menu as $key=>$item) {
-                if($key%2 === 0) {
-                    echo "<tr>
-                    <td>
-                        <table>
-                            <tr>
-                                <td rowspan=\"2\"><img height=\"100\" width=\"100\" src=".$item['image']."></td>
-                                <td>".$item['title']."</td>
-                                <td rowspan=\"2\">".$item['price']."/-</td>
-                            </tr>
-                            <tr>
-                                <td>".$item['subtitle']."</td>
-                            </tr>
-                        </table>
-                    </td>";
-                } else {
-                    echo "<td>
-                    <table>
-                        <tr>
-                            <td rowspan=\"2\"><img height=\"100\" width=\"100\" src=".$item['image']."></td>
-                            <td>".$item['title']."</td>
-                            <td rowspan=\"2\">".$item['price']."/-</td>
-                        </tr>
-                        <tr>
-                            <td>".$item['subtitle']."</td>
-                        </tr>
-                    </table>
-                    </td>
-                </tr>";
-                }
+            foreach($menu as $key=>$item) {                
+                echo "
+                <div><a href=\"\"><div class=\"dish\">
+                <img src=".$item['image']." alt=\"Menu Picture\">
+                <div class=\"dish__info\">
+                    <div class=\"dish__title\"><h3>".$item['title']."</h3></div>
+                    <div class=\"dish__subtitle\"><p>".$item['subtitle']."</p></div>
+                </div>
+                <div class=\"dish__price\"><p>".$item['price']."/-</p></div>
+                </div></a></div> 
+                ";
+
             }
-            if(sizeof($menu)%2 == 1) {
-                echo '</tr>';
-            }
-            echo '<table>';
         }
     }
 ?>

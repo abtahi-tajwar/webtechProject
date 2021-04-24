@@ -1,4 +1,15 @@
-<div class="hero-section">
+<div class="hero">
+    <div class="hero__info">
+        <h2>Fusion Inspired Cuisine</h2>
+        <h3><?php echo $data['subtitle'] ?></h3>
+    </div>
+    <div class="hero__mission">
+        <h2>Our Mission</h2>
+        <p><?php echo $data['mission'] ?></p>
+    </div>
+</div>
+<!-- Old UI -->
+<!-- <div class="hero-section">
     <center>
         <table width="1000px">
             <tr>
@@ -10,15 +21,19 @@
             </tr>
         </table>
     </center>
-</div>
-<div class="featured-menu">
-    <center>
-    <h1>Featured Menu</h1>
-    <?php 
-        Menu::showFeaturedMenu();
-    ?>
-    </center>
-</div>
+</div> -->
+<div class="container">
+        <div class="featured-dish">
+            <div class="title">
+                <h2>Featured Dish</h2>
+            </div>
+            <div class="all-dishes">
+                <?php 
+                    Menu::showFeaturedMenu();
+                ?>                 
+            </div>    
+        </div>
+    </div>
 <br><br>
 <div class="menu-type-select">
     <table>

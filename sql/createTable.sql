@@ -1,3 +1,61 @@
+CREATE TABLE admin (
+    admin_id INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    firstname VARCHAR(255) NOT NULL, 
+    lastname VARCHAR(255),
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(1000) NOT NULL,
+    phone VARCHAR(100) NOT NULL,
+    NID VARCHAR(100) NOT NULL, 
+    dob DATE NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    address VARCHAR(1000),
+    refno VARCHAR(255) NOT NULL,
+    wokrexp VARCHAR(1000),
+    image VARCHAR(1000)
+);
+CREATE TABLE manager (
+    manager_id INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    firstname VARCHAR(255) NOT NULL, 
+    lastname VARCHAR(255),
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(1000) NOT NULL,
+    phone VARCHAR(100) NOT NULL,
+    NID VARCHAR(100) NOT NULL, 
+    dob DATE NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    address VARCHAR(1000),
+    education VARCHAR(255),
+    coverletter VARCHAR(1000) NOT NULL,
+    image VARCHAR(1000)
+);
+CREATE TABLE customer (
+	customer_id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255),
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(1000) NOT NULL,
+    dob DATE,
+    gender VARCHAR(10),
+    address VARCHAR(1000),
+    favourite_foods VARCHAR(255)
+);
+CREATE TABLE rider (
+    rider_id INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    firstname VARCHAR(255) NOT NULL, 
+    lastname VARCHAR(255),
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(1000) NOT NULL,
+    phone VARCHAR(100) NOT NULL,
+    NID VARCHAR(100) NOT NULL, 
+    dob DATE NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    address VARCHAR(1000),
+    starting_time TIME NOT NULL,
+    ending_time TIME NOT NULL,
+    vehicle VARCHAR(1000) NOT NULL,
+    image VARCHAR(1000)
+);
+
 CREATE TABLE Users (
     user_id INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     role VARCHAR(100) NOT NULL,

@@ -25,6 +25,6 @@
         <p>All rights reserved to &copy; somename</p>
     </center>
 </footer>
-
+<script src="https://kit.fontawesome.com/8d30c69f91.js" crossorigin="anonymous"></script>
 </body>
 </html>
