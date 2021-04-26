@@ -3,12 +3,17 @@
 ?>
 
 <div class="menu-container">
+<?php 
+    if(isset($_GET['loggedin'])) {
+        echo 'Please login in first to order';
+    }
+?>
         <div class="menu-type">
             <ul>
                 <li class="selected-menu" id="appetizer">Appetiser</li>
                 <li id="setmeal">Set Meal</li>
                 <li id="dessert">Dessert</li>
-                <li id="drinks">Delivery</li>
+                <li id="drinks">Drinks</li>
             </ul>
         </div>
         <div class="menu">
@@ -33,6 +38,7 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="<?php echo $path.'utils/js/routes/fetchMenu.js'?>"></script>
     <script src="<?php echo $path.'utils/js/ui/menu.js'?>"></script>
 

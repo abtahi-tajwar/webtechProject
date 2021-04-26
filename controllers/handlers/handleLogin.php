@@ -13,7 +13,7 @@ if(isset($_POST['login'])) {
     $result = User::getUser($email);
     $user = $result['data'];
     if($user === null) {
-        header('Location: http://localhost/webtechProject/views/login.php?loginFailed=true');
+        header('Location: http://localhost/webtechProject/views/login2.php?loginFailed=true');
     } else {
         if($pwd === $user['password']) {
             Session::create($email);
@@ -27,11 +27,11 @@ if(isset($_POST['login'])) {
             exit();
         }
         else {
-            header('Location: http://localhost/webtechProject/views/login.php?loginFailed=true');
+            header('Location: http://localhost/webtechProject/views/login2.php?loginFailed=true');
         }
         
     }
     
 } else {
-    header('Location: http://localhost/webtechProject/views/login.php');
+    header('Location: http://localhost/webtechProject/views/login2.php');
 }

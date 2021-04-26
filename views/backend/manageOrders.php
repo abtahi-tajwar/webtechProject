@@ -1,57 +1,32 @@
-<?php 
-    include $_SERVER['DOCUMENT_ROOT'].'/webtechProject/views/header.php'; 
-    
+<?php include $_SERVER['DOCUMENT_ROOT'].'/webtechProject/views/backend/sidenav.php';  
+include $_SERVER['DOCUMENT_ROOT'].'/webtechProject/models/order.php'; 
 ?>
-<center width="1100">
-    <table>
-        <td><?php include $_SERVER['DOCUMENT_ROOT'].'/webtechProject/views/backend/sidenav.php';  ?></td>
-        <td>
-            <table>
-                <tr>
-                    <td rowspan="2"><img height="60" width="50" src="../../image/static/user.png" alt=""></td>
-                    <td><h3>Abtahi Tajwar</h3></td>
-                    <td><a href="">View</a></td>
-                    <td><a href="">Delete</a></td>
-                    <td><a href="">Completed</a></td>
-                </tr>
-                <tr><td>Nawab Sirajuddaula Road, Chawkbazar, Chittagong</td></tr>
-                <tr><td>12th December, 12:10</td></tr>
-            </table>
-            <table>
-                <tr>
-                    <td rowspan="2"><img height="60" width="50" src="../../image/static/user.png" alt=""></td>
-                    <td><h3>Abtahi Tajwar</h3></td>
-                    <td><a href="">View</a></td>
-                    <td><a href="">Delete</a></td>
-                    <td><a href="">Completed</a></td>
-                </tr>
-                <tr><td>Nawab Sirajuddaula Road, Chawkbazar, Chittagong</td></tr>
-                <tr><td>12th December, 12:10</td></tr>
-            </table>
-            <table>
-                <tr>
-                    <td rowspan="2"><img height="60" width="50" src="../../image/static/user.png" alt=""></td>
-                    <td><h3>Abtahi Tajwar</h3></td>
-                    <td><a href="">View</a></td>
-                    <td><a href="">Delete</a></td>
-                    <td><a href="">Completed</a></td>
-                </tr>
-                <tr><td>Nawab Sirajuddaula Road, Chawkbazar, Chittagong</td></tr>
-                <tr><td>12th December, 12:10</td></tr>
-            </table>
-            <table>
-                <tr>
-                    <td rowspan="2"><img height="60" width="50" src="../../image/static/user.png" alt=""></td>
-                    <td><h3>Abtahi Tajwar</h3></td>
-                    <td><a href="">View</a></td>
-                    <td><a href="">Delete</a></td>
-                    <td><a href="">Completed</a></td>
-                </tr>
-                <tr><td>Nawab Sirajuddaula Road, Chawkbazar, Chittagong</td></tr>
-                <tr><td>12th December, 12:10</td></tr>
-            </table>
-        </td>
-    </table>
-</center>
-
-<?php include $_SERVER['DOCUMENT_ROOT'].'/webtechProject/views/footer.php'; ?>
+    
+    <div class="area1">
+    <?php $orders = getUndeliveredOrders(); 
+        foreach($orders as $order) {
+            echo '
+            <div class="order">
+                <div class="title"><h2>Order No: #'.$order['order_id'].'</h2></div>
+                <div class="details"><p>'.$order['item'].'</p></div>
+                <div class="price"><p>'.$order['price'].'</p></div>
+            </div>
+            ';
+        }
+    ?>
+        
+    </div>
+    <div class="area2">
+        <div class="search-form" id="userSearchForm">
+            <form action="" method="POST">
+                <input type="text" name="email">
+                <input type="submit" name="search" value="search">
+            </form>
+        </div>
+        <div class="search-result" id="search-result">
+        </div>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/8d30c69f91.js" crossorigin="anonymous"></script>
+</body>
+</html>

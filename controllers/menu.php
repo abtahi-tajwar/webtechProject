@@ -11,13 +11,15 @@
             $this->image = $image;
             $this->type = $type;
         }
-
         public function save() {
             $msg = insertMenuItem($this->title, $this->subtitle, $this->desc, $this->price, $this->image, $this->type);
             return $msg;
         }
         public static function getMenuByType($type) {
             return getMenuByType($type);
+        }
+        public static function getMenuById($id) {
+            return getMenuById($id);
         }
         public static function getFullMenu() {
             return getFullMenu();

@@ -45,50 +45,7 @@ $data = getJSONData();
                     <div class="list-title-price">Price</div>
                 </div>
 
-                <div class="items">
-                    <!-- Item Row -->
-                    <div class="item">
-                        <img src="<?php echo $path.'image/ui/menu1.png' ?>" alt="">
-                        <div class="desc">
-                            <h2>EL Passo De' Pasta &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-times-circle"></i></h2>
-                            <p>Chicken | Butter | Dou</p>
-                        </div>
-                    </div>
-                    <div class="amount">
-                        <p>1</p>
-                    </div>
-                    <div class="price">
-                        <p>250/-</p>
-                    </div>
-                    <!-- Item Row -->
-                    <div class="item">
-                        <img src="<?php echo $path.'image/ui/menu1.png' ?>" alt="">
-                        <div class="desc">
-                            <h2>EL Passo De' Pasta &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-times-circle"></i></h2>
-                            <p>Chicken | Butter | Dou</p>
-                        </div>
-                    </div>
-                    <div class="amount">
-                        <p>1</p>
-                    </div>
-                    <div class="price">
-                        <p>250/-</p>
-                    </div>
-                    <!-- Item Row -->
-                    <div class="item">
-                        <img src="<?php echo $path.'image/ui/menu1.png' ?>" alt="">
-                        <div class="desc">
-                            <h2>EL Passo De' Pasta &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-times-circle"></i></h2>
-                            <p>Chicken | Butter | Dou</p>
-                        </div>
-                    </div>
-                    <div class="amount">
-                        <p>1</p>
-                    </div>
-                    <div class="price">
-                        <p>250/-</p>
-                    </div>
-                </div>
+                <div class="items"></div>
             </div>
             <div class="memo">
                 <div class="title"><h2>Memo</h2></div>
@@ -96,11 +53,11 @@ $data = getJSONData();
                     <table>
                         <tr>
                             <th>Amount</th>
-                            <td>3</td>
+                            <td id="memo_amount">3</td>
                         </tr>
                         <tr>
                             <th>Subtotal</th>
-                            <td>750/-</td>
+                            <td id="memo_subtotal">750/-</td>
                         </tr>
                         <tr>
                             <th>Vat</th>
@@ -108,14 +65,14 @@ $data = getJSONData();
                         </tr>
                         <tr>
                             <th>Calculated Vat</th>
-                            <td>115.5/-</td>
+                            <td id="memo_calculated_vat">115.5/-</td>
                         </tr>
                         <tr>
                             <td colspan="2"><hr></td>
                         </tr>
                         <tr>
                             <th>Total</th>
-                            <td>862.5/-</td>
+                            <td id="memo_total">862.5/-</td>
                         </tr>
                     </table>
                 </div>
@@ -125,15 +82,15 @@ $data = getJSONData();
                     <p>Cash On Delivery</p>
                 </div>
 
-                <a href="" class="checkout-button">Checkout</a>
+                <a href="<?php echo $path.'controllers/handlers/handleCheckout.php' ?>" class="checkout-button">Checkout</a>
             </div>
         </div>
     </div>
     <?php if($session_exists) {
-            if($_SESSION['role'] !== 'customer') {
+        if($_SESSION['role'] !== 'customer') {
                 echo '
                 <div class="dashboard-button-container">
-                    <a href="'.$path.'/views/backend/dashboard.php' .'">Go To Dashboard</a>
+                    <a href="'.$path.'/views/backend/manageOrders.php' .'">Go To Dashboard</a>
                 </div>
             ';
             } 
@@ -165,6 +122,6 @@ $data = getJSONData();
         </nav>
         <div class="cart" id="cart">
             <i class="fas fa-cart-plus"></i>
-            <div class="cart-item-number">1</div>
+            <div class="cart-item-number" id="cart-item-number">0</div>
         </div>
         

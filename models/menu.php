@@ -25,6 +25,12 @@
         }
         return $menus;
     }
+    function getMenuById($id) {
+        global $conn;
+        $res = $conn->query("SELECT * FROM Menu WHERE menu_id='$id'");
+        $menu = $res->fetch_assoc();
+        return $menu;
+    }
     function getFullMenu() {
         global $conn;
         $menus = array();

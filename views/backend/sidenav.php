@@ -1,4 +1,6 @@
-<?php $path = 'http://'.$_SERVER['HTTP_HOST'].'/webtechProject'; ?>
+<?php $path = 'http://'.$_SERVER['HTTP_HOST'].'/webtechProject'; 
+    session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +19,13 @@
             <a href="<?php echo $path ?>" class="home-link"><i class="fas fa-home"></i> Go back to home</a>
             <h1>Dashboard</h1>
             <ul>
+                <?php if ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'manager')  { ?>
                 <li><a href="<?php echo $path.'/views/backend/dashboard.php'; ?>">Menus</a></li>
+                <?php } ?>
                 <li><a href="<?php echo $path.'/views/backend/manageOrders.php'; ?>">Orders</a></li>
+                <?php if ($_SESSION['role'] === 'admin')  { ?>
                 <li><a href="<?php echo $path.'/views/backend/managePermissions.php'; ?>">Permissions</a></li>
+                <?php } ?>
             </ul>
         </div>
 

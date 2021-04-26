@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     include $_SERVER['DOCUMENT_ROOT'].'/webtechProject/controllers/user.php';
     include $_SERVER['DOCUMENT_ROOT'].'/webtechProject/controllers/session.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/webtechProject/models/admin.php';
@@ -31,6 +33,8 @@
     // User::editUser('customer', 'ibrahimmohim@gmail.com', array(
     //     'fname' => 'Ibrahim'
     // ));
-
-    var_dump(User::getUser('abtahitajwarrr@gmail.com'));
+    
+    echo $_SESSION['email'];
+    echo $_SESSION['address'];
+    //var_dump(User::getUser('abtahitajwarrr@gmail.com'));
 ?>

@@ -5,10 +5,12 @@
 <div class="auth-container">
     <div class="login">
         <div class="title"><h2>Login</h2></div>
-        <form action="" action="POST">
+        <form action="http://localhost/webtechProject/controllers/handlers/handleLogin.php" method="POST">
             <input type="text" name="email" id="login-email" placeholder="Email Address">
             <input type="password" name="pwd" id="login-pwd" placeholder="Password">
-            <input type="submit" value="Login" id="login-submit">
+            <input type="checkbox" name="remember" value="remember">
+            <label for="remember">Remember Me</label><br>
+            <input type="submit" value="Login" id="login-submit" name="login">
         </form>
     </div>
     <div class="signup">
@@ -68,7 +70,7 @@
                     </p>
                 </div>  
                 <div class="gender">
-                    <input type="radio" name="gender" id="gender" value="male">
+                    <input type="radio" name="gender" id="gender" value="male" checked>
                     <label for="male">Male</label>
                     <input type="radio" name="gender" id="gender" value="female">
                     <label for="female">Female</label>
@@ -101,19 +103,19 @@
         </form>
     </div>
     <div class="apply">
-        <a href="">
+        <a href="<?php echo $path.'views/adminSignup.php' ?>">
             <div class="apply-button">
                 <img src="<?php echo $path.'image/ui/admin.svg' ?>" alt="">
                 <p>Request for Admin</p>
             </div>
         </a>
-        <a href="">
+        <a href="<?php echo $path.'views/managerSignup.php' ?>">
             <div class="apply-button">
                 <img src="<?php echo $path.'image/ui/manager.svg' ?>" alt="">
                 <p>Apply for Manager</p>
             </div>
         </a>
-        <a href="">
+        <a href="<?php echo $path.'views/riderSignup.php' ?>">
             <div class="apply-button">
                 <img src="<?php echo $path.'image/ui/rider.svg' ?>" alt="">
                 <p>Become A Rider</p>
